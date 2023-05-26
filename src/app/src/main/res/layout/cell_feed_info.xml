@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="8sp"
+    android:layout_marginVertical="4sp"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_margin="4sp">
+
+        <TextView
+            android:id="@+id/dayDateValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Lunes"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/startDateLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de inicio:"
+            app:layout_constraintStart_toStartOf="@id/dayDateValueTextView"
+            app:layout_constraintTop_toBottomOf="@id/dayDateValueTextView" />
+
+        <TextView
+            android:id="@+id/startDateValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/startDateLabelTextView"
+            app:layout_constraintTop_toTopOf="@id/startDateLabelTextView" />
+
+        <TextView
+            android:id="@+id/endDateLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de fin:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/startDateLabelTextView" />
+
+        <TextView
+            android:id="@+id/endDateValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/endDateLabelTextView"
+            app:layout_constraintTop_toTopOf="@id/endDateLabelTextView" />
+
+        <TextView
+            android:id="@+id/boobLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Derecha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/endDateLabelTextView" />
+
+        <TextView
+            android:id="@+id/durationLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duración:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/boobLabelTextView" />
+
+        <TextView
+            android:id="@+id/durationValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/durationLabelTextView"
+            app:layout_constraintTop_toTopOf="@id/durationLabelTextView" />
+
+        <TextView
+            android:id="@+id/timePassedValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            app:layout_constraintStart_toEndOf="@id/startDateValueTextView"
+            app:layout_constraintTop_toBottomOf="@id/startDateValueTextView" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/timePassedFromPreviusValueTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="40sp"-->
+<!--            app:layout_constraintStart_toEndOf="@id/timePassedValueTextView"-->
+<!--            app:layout_constraintTop_toTopOf="@id/timePassedValueTextView" />-->
+
+        <ImageButton
+            android:id="@+id/remove_bottom"
+            android:src="@drawable/baseline_remove_circle_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
