@@ -25,9 +25,11 @@ class FeedInfoAdapter(private val dataSet: MutableList<FeedInfo>) :
             val simpleDateFormat = SimpleDateFormat(pattern)
 
             item.startDate?.let {
-
                 binding.startDateValueTextView.text = simpleDateFormat.format(it)
                 binding.dayDateValueTextView.text = getDayLabel(it)
+
+                var minutesFromNow = calcularTiempoTranscurrido(it, Date())
+                binding.timePassedValueTextView.text = "Hace " +minutesFromNow //"Hace " + minutesFromNow.toString() + " minutos"
             }
 
             binding.durationLabelTextView.isVisible = false
@@ -36,10 +38,10 @@ class FeedInfoAdapter(private val dataSet: MutableList<FeedInfo>) :
                 binding.durationLabelTextView.isVisible = true
                 binding.endDateLabelTextView.isVisible = true
                 var minutes = calculateMinutes(item.startDate!!, it)
-                var minutesFromNow = calcularTiempoTranscurrido(it, Date())
+
                 binding.endDateValueTextView.text = simpleDateFormat.format(it)
                 binding.durationValueTextView.text = minutes.toString() + " minutos"
-                binding.timePassedValueTextView.text = "Hace " +minutesFromNow //"Hace " + minutesFromNow.toString() + " minutos"
+
             }
 
             binding.boobLabelTextView.isVisible = false

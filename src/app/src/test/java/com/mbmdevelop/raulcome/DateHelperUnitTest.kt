@@ -3,9 +3,49 @@ package com.mbmdevelop.raulcome
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.text.SimpleDateFormat
+import java.util.*
 
-class DataHelperUnitTest {
+class DateHelperUnitTest {
     private val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+
+    @Test
+    fun getDayLabel_getToday() {
+        val resultado = getDayLabel(Date())
+        assertEquals("Hoy", resultado)
+    }
+
+    @Test
+    fun getDayLabel_getYesterday() {
+        var today = Date()
+        val cal = Calendar.getInstance()
+        cal.time = today
+        cal.add(Calendar.DAY_OF_YEAR, -1)
+
+        val resultado = getDayLabel(cal.time)
+        assertEquals("Ayer", resultado)
+    }
+
+    @Test
+    fun getDayLabel_getMoreThanthreeDays() {
+        var today = Date()
+        val cal = Calendar.getInstance()
+        cal.time = today
+        cal.add(Calendar.DAY_OF_YEAR, -3)
+
+        val resultado = getDayLabel(cal.time)
+        assertEquals("Tres días o más", resultado)
+    }
+
+    @Test
+    fun getDayLabel_getPreviusYesterday() {
+        var today = Date()
+        val cal = Calendar.getInstance()
+        cal.time = today
+        cal.add(Calendar.DAY_OF_YEAR, -2)
+
+        val resultado = getDayLabel(cal.time)
+        assertEquals("Antes de ayer", resultado)
+    }
 
     @Test
     fun calcularTiempoTranscurrido_Diferencia7diasDosHorasTreintaMinutos_ReturnsResultadoEsperado() {

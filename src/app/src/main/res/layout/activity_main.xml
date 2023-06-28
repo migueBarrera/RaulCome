@@ -38,4 +38,14 @@
         app:srcCompat="@drawable/baseline_child_care_24"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_food_timing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="88dp"
+        app:srcCompat="@drawable/round_analytics_24"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

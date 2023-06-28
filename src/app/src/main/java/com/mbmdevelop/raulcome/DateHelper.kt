@@ -1,21 +1,12 @@
 package com.mbmdevelop.raulcome
 
+import java.text.SimpleDateFormat
 import java.time.Duration
+import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
 import java.util.concurrent.TimeUnit
-
-fun CalculateNumOfDaysFromToday(date: Date) : Int{
-    val fechaInicial = date // Tu primera fecha
-    val fechaFinal = Date() // Tu segunda fecha
-
-    val diferenciaMillis = fechaFinal.time - fechaInicial.time
-    val diferenciaDias = TimeUnit.MILLISECONDS.toDays(diferenciaMillis)
-
-    return diferenciaDias.toInt();
-}
-
 fun isToday(date: Date): Boolean {
     val calHoy = Calendar.getInstance() // Calendar con la fecha de hoy
     val calFecha = Calendar.getInstance() // Calendar con la fecha de tu variable
@@ -30,20 +21,9 @@ fun isToday(date: Date): Boolean {
 }
 
 fun getDayLabel(date: Date): CharSequence? {
-    if (isToday(date)){
-        return "Hoy"
-    }else{
-        var daysPassed = CalculateNumOfDaysFromToday(date)
-        if (daysPassed == 1){
-            return "Ayer"
-        }else{
-            if (daysPassed == 2){
-                return "Antes de ayer"
-            }else{
-                return "Tres días o más"
-            }
-        }
-    }
+    val patternDay = "MM/dd"
+    val formatToday = SimpleDateFormat(patternDay)
+    return formatToday.format(date)
 }
 
 fun calculateMinutes(fechaInicial:Date, fechaFinal: Date): Int{
@@ -61,6 +41,17 @@ fun getDateWithMinutesSUM(minutes: Int): Date{
     return fecha.time
 }
 
+fun calcularTiempoTranscurridoDuration(fechaInicial: Date, fechaFinal: Date): Long {
+    val diferenciaMillis = fechaFinal.time - fechaInicial.time
+    return TimeUnit.MILLISECONDS.toSeconds(diferenciaMillis)
+}
+
+fun convertirTiempoALegible(tiempoEnSegundos: Long): String {
+    val horas: Long = tiempoEnSegundos / 3600
+    val minutos: Long = (tiempoEnSegundos % 3600) / 60
+
+    return String.format("%d horas y %d minutos", horas, minutos)
+}
 fun calcularTiempoTranscurrido(fechaInicial: Date, fechaFinal: Date): String {
     val fechaInicialLdt = fechaInicial.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()
     val fechaFinalLdt = fechaFinal.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()

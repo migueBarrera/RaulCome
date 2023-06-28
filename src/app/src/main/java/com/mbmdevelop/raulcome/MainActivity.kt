@@ -1,5 +1,6 @@
 package com.mbmdevelop.raulcome
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -36,6 +37,16 @@ class MainActivity : AppCompatActivity() {
                 askWhenStarted()
             }
         }
+
+        binding.fabFoodTiming.setOnClickListener {
+            goToFoodTiming()
+        }
+    }
+
+    private fun goToFoodTiming() {
+        val i = Intent(this,FoodTimingActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+        startActivity(i)
     }
 
     override fun onStart() {
@@ -97,6 +108,7 @@ class MainActivity : AppCompatActivity() {
         binding.listFeedInfo.layoutManager = LinearLayoutManager(this)
         binding.listFeedInfo.adapter = adapter
         binding.listFeedInfo.scrollToPosition(items.size - 1);
+        binding.listFeedInfo.setNestedScrollingEnabled(false);
     }
 
     private fun setupObservers() {

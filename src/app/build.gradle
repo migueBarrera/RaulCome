@@ -43,7 +43,7 @@ def liveData_version = "2.6.1"
 def lifecycle_version = "2.6.1"
 dependencies {
 
-    implementation 'androidx.activity:activity-ktx:1.7.1'
+    implementation 'androidx.activity:activity-ktx:1.7.2'
     implementation 'androidx.fragment:fragment-ktx:1.5.7'
     implementation "androidx.core:core-ktx:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.6.1'
